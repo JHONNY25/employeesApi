@@ -21,6 +21,10 @@ class EmployeesController extends Controller
         return $this->employee->with('skills:id,name,qualification,employees_id')->paginate(10);
     }
 
+    public function getEmployee($id){
+        return $this->employee->with('skills:id,name,qualification,employees_id')->find($id);
+    }
+
     public function create(Request $request){
         try {
             DB::beginTransaction();
